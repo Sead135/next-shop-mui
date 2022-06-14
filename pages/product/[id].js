@@ -101,9 +101,7 @@ const ProductPage = ({product}) => {
 };
 
 export const getServerSideProps = async ({params}) => {
-  const res = await axios.get(
-    `http://localhost:3000/api/products/`
-  );
+  const res = await axios.get(req.headers.host + '/api/products/');
 
   const product = res.data.find(item => item._id === params.id)
 
